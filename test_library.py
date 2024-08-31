@@ -48,5 +48,19 @@ class TestLibrary(unittest.TestCase):
         with self.assertRaises(ValueError):
             library.return_book("nonexistent_isbn")
 
+    def test_view_available_books(self):
+        library = Library()
+        book1 = {"isbn": "1", "title": "My Book", "author": "Abhishek", "year": 2024}
+        book2 = {"isbn": "2", "title": "Another Book", "author": "Author", "year": 2023}
+        library.add_book(book1)
+        library.add_book(book2)
+        available_books = library.view_available_books()
+        self.assertEqual(available_books, {"1": book1, "2": book2})
+
+    def test_view_no_available_books(self):
+        library = Library()
+        with self.assertRaises(ValueError):
+            library.view_available_books()
+
 if __name__ == '__main__':
     unittest.main()
