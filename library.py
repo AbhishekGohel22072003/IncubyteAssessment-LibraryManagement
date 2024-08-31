@@ -25,3 +25,8 @@ class Library:
             raise ValueError("Book not recognized")
         self.books[isbn] = self.borrowed_books.pop(isbn)
         return "Book returned"
+
+    def view_available_books(self):
+        if not self.books:
+            raise ValueError("No books available in the library.")
+        return self.books
