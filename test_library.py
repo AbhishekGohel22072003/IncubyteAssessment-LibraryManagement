@@ -33,6 +33,20 @@ class TestLibrary(unittest.TestCase):
         library = Library()
         with self.assertRaises(ValueError):
             library.borrow_book("nonexistent_isbn")
+            
+    def test_return_book(self):
+        library = Library()
+        book = {"isbn": "1", "title": "My Book", "author": "Abhishek", "year": 2024}
+        library.add_book(book)
+        library.borrow_book("1")
+        result = library.return_book("1")
+        self.assertEqual(result, "Book returned")
+        self.assertIn("1", library.books)
+
+    def test_return_nonexistent_book(self):
+        library = Library()
+        with self.assertRaises(ValueError):
+            library.return_book("nonexistent_isbn")
 
 if __name__ == '__main__':
     unittest.main()
