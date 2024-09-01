@@ -1,0 +1,110 @@
+Library Management System Incubyte Assessment - Test Report
+---------------------------------------
+
+This report contains the results of the unit tests executed for the Library Management System.
+
+Test Execution Summary:
+-----------------------
+Ran 9 tests in 0.002s
+
+OK
+
+Detailed Results:
+-----------------
+1. Initial Run:
+   - Command: `python -m unittest discover`
+   - Result: ERROR
+   - Details: 
+     ```
+     ERROR: test_library (unittest.loader._FailedTest.test_library)
+     ImportError: Failed to import test module: test_library
+     Traceback (most recent call last):
+       File "C:\Users\Abhishek Gohel\AppData\Local\Programs\Python\Python312\Lib\unittest\loader.py", line 394, in _find_test_path
+         module = self._get_module_from_name(name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       File "C:\Users\Abhishek Gohel\AppData\Local\Programs\Python\Python312\Lib\unittest\loader.py", line 337, in _get_module_from_name
+         __import__(name)
+       File "C:\Users\Abhishek Gohel\Desktop\library_management_system\test_library.py", line 2, in <module>
+         from library import Library
+     ImportError: cannot import name 'Library' from 'library' (C:\Users\Abhishek Gohel\Desktop\library_management_system\library.py)
+     ```
+
+2. Failing Test for Adding Books:
+   - Command: `python -m unittest discover`
+   - Result: FAIL
+   - Details: 
+     ```
+     FAIL: test_add_book (test_library.TestLibrary.test_add_book)
+     AssertionError: '1' not found in [{'isbn': '1', 'title': 'My Book', 'author': 'Abhishek', 'year': 2024}]
+     ```
+
+3. Fix and Validation of Add Book Feature:
+   - Command: `python -m unittest test_library.py`
+   - Result: OK
+   - Details: 
+     ```
+     Ran 3 tests in 0.001s
+
+     OK
+     ```
+
+4. Failing Tests for Borrowing Books:
+   - Command: `python -m unittest test_library.py`
+   - Result: ERROR
+   - Details: 
+     ```
+     ERROR: test_borrow_book (test_library.TestLibrary.test_borrow_book)
+     AttributeError: 'Library' object has no attribute 'borrow_book'
+     ```
+
+5. Fix and Validation of Borrow Book Feature:
+   - Command: `python -m unittest test_library.py`
+   - Result: OK
+   - Details: 
+     ```
+     Ran 5 tests in 0.001s
+
+     OK
+     ```
+
+6. Failing Tests for Returning Books:
+   - Command: `python -m unittest test_library.py`
+   - Result: ERROR
+   - Details: 
+     ```
+     ERROR: test_return_book (test_library.TestLibrary.test_return_book)
+     AttributeError: 'Library' object has no attribute 'return_book'
+     ```
+
+7. Fix and Validation of Return Book Feature:
+   - Command: `python -m unittest test_library.py`
+   - Result: OK
+   - Details: 
+     ```
+     Ran 7 tests in 0.001s
+
+     OK
+     ```
+
+8. Failing Tests for Viewing Available Books:
+   - Command: `python -m unittest test_library.py`
+   - Result: ERROR
+   - Details: 
+     ```
+     ERROR: test_view_available_books (test_library.TestLibrary.test_view_available_books)
+     AttributeError: 'Library' object has no attribute 'view_available_books'
+     ```
+
+9. Fix and Validation of View Available Books Feature:
+   - Command: `python -m unittest test_library.py`
+   - Result: OK
+   - Details: 
+     ```
+     Ran 9 tests in 0.003s
+
+     OK
+     ```
+
+Conclusion:
+-----------
+All tests passed successfully after implementing the necessary features and validations. The Library Management System is functioning as expected with the implemented features.
